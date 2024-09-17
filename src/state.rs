@@ -1,4 +1,4 @@
-use cw_storage_plus::Map;
+use cw_storage_plus::{Item, Map};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
@@ -13,4 +13,5 @@ pub struct Blog {
     pub updated_at: u64,
 }
 
-pub const BLOGS: Map<Addr, Vec<Blog>> = Map::new("blogs");
+pub const BLOGS: Map<(Addr, u64), Blog> = Map::new("blogs");
+pub const LATEST_BLOG_ID: Item<u64> = Item::new("latest_blog_id");
