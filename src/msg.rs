@@ -26,17 +26,9 @@ pub enum ExecuteMsg {
 #[cw_serde]
 #[derive(QueryResponses)]
 pub enum QueryMsg {
-    // GetBlogs returns the blogs of the given address
-    #[returns(GetBlogsResponse)]
-    GetBlogs { addr: Addr },
     // GetBlog returns the blog of the given address and id
     #[returns(GetBlogResponse)]
     GetBlog { addr: Addr, id: u64 },
-}
-
-#[cw_serde]
-pub struct GetBlogsResponse {
-    pub blogs: Vec<Blog>,
 }
 
 #[cw_serde]
